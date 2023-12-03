@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 // @LoadBalancerClient(value = "products-service", configuration = LoadBalancerConfiguration.class)
-@FeignClient(name="another-products", url="http://localhost:8094")
+// @FeignClient(name="another-products", url="http://localhost:8094")
+@FeignClient(name="products-service")
 public interface FeignProductRepository {
 
     @RequestMapping(method = RequestMethod.GET, value="/products")

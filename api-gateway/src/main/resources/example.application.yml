@@ -1,0 +1,31 @@
+server:
+  port: 8095
+spring:
+  config:
+    import: "optional:configserver:"
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+#        El identificador de la ruta, que puede ser el nombre del servicio
+        - id: checkout-service
+#         La ruta del microservicio o el identificador en Eureka
+          uri: lb://checkout-service
+#         Los endpoints a los que se hacen referencia en la ruta de acceso en el gateway
+          predicates:
+          - Path=/checkout
+          filters:
+            - AddRequestHeader=X-Request-red, blue
+            - AddResponseHeader=X-Example-color, orange
+        - id: products-service
+          uri: lb://products-service
+          predicates:
+            - Path=/products
+          filters:
+            - AddRequestHeader=X-Request-red, blue
+            - AddResponseHeader=X-Example-color, green
+    config:
+      discovery:
+        enabled: true
+        serviceId: config-server
