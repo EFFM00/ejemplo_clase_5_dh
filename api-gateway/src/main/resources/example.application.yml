@@ -21,7 +21,7 @@ spring:
         - id: products-service
           uri: lb://products-service
           predicates:
-            - Path=/products
+            - Path=/productsQ
           filters:
             - AddRequestHeader=X-Request-red, blue
             - AddResponseHeader=X-Example-color, green

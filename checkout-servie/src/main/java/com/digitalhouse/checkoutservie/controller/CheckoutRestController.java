@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import com.digitalhouse.checkoutservie.model.Checkout;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value="/checkout")
@@ -19,7 +20,7 @@ public class CheckoutRestController {
     }
 
     @GetMapping()
-    public Checkout getCheckout(@RequestParam List<String> productIds, @RequestHeader("X-Request-red") String requestColor) {
+    public Checkout getCheckout(@RequestParam List<String> productIds, @RequestHeader("X-Request-red") String requestColor, @RequestHeader Map<String, String> headers) {
         System.out.println("Enviado con el color " + requestColor);
         if(!requestColor.equals("blue")) {
             System.out.println("El header es null");
