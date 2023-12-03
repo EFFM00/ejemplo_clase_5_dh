@@ -6,13 +6,16 @@ public class Product {
     private String name;
     private Double price;
 
+    private String instance;
+
     public Product() {
     }
 
-    public Product(String id, String name, Double price) {
+    public Product(String id, String name, Double price, String instance) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.instance = instance;
     }
 
     public String getId() {
@@ -37,5 +40,13 @@ public class Product {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getInstance() {
+        return instance;
+    }
+
+    public void setInstance(String instance) {
+        this.instance = instance;
     }
 }

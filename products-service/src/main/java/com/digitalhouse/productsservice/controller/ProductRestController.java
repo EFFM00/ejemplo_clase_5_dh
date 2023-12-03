@@ -12,6 +12,6 @@ public class ProductRestController {
 
     @GetMapping()
     public Product getProduct(@RequestParam String id) {
-        return new Product(id, "Notebook", 200.0);
+        return new Product(id, "Mouse", 10.0, "1");
     }
 }
